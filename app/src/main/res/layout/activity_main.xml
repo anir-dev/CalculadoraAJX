@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
+    tools:context="com.example.xabi.calculadora2.MainActivity">
+
+    <include
+        layout="@layout/action_bar"
+        android:id="@id/action_bar">
+    </include>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/action_bar"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:gravity="end"
+        android:inputType="number"
+        android:textColor="@color/background_light"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/boton_redondo"
+        android:text="@string/ac"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnRaizCuadrada"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/btnBorrar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/btnBorrar"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaOperador"
+        android:text="@string/RaizCuadrada"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnPotencia"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/btn9"
+        android:layout_alignLeft="@+id/btn9"
+        android:layout_alignStart="@+id/btn9"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaOperador"
+        android:text="@string/Potencia"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnDividir"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/btnBorrar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/btnPotencia"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaOperador"
+        android:text="@string/Dividir"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn7"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btnBorrar"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numSiete"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btnRaizCuadrada"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn7"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numOcho"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn9"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btnRaizCuadrada"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn8"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numNueve"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnMultiplicar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btnRaizCuadrada"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn9"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaOperador"
+        android:text="@string/Multiplicar"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn7"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numCuatro"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn8"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn4"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numCinco"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn9"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn5"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numSeis"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnRestar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btnMultiplicar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn6"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaOperador"
+        android:text="@string/Restar"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn4"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numUno"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn5"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn1"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numDos"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn6"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn2"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numTres"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnSumar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btnRestar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn3"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaOperador"
+        android:text="@string/Sumar"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btn0"
+        android:layout_width="155dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaNumero"
+        android:text="@string/numZero"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnComa"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btn3"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btn0"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaComa"
+        android:text="@string/Coma"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnIgual"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/btnSumar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btnComa"
+        android:background="@drawable/boton_redondo"
+        android:onClick="pulsaIgual"
+        android:text="@string/Igual"
+        android:textSize="30sp" />
+
+
+</RelativeLayout>
+

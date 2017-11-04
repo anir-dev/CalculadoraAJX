@@ -1,0 +1,58 @@
+<resources>
+<string name="app_name">CALCULADORA2</string>
+    <string name="ac">AC</string>
+    <string name="RaizCuadrada">√</string>
+    <string name="Potencia">X^</string>
+    <string name="Dividir">÷</string>
+    <string name="numSiete">7</string>
+    <string name="numOcho">8</string>
+    <string name="numNueve">9</string>
+    <string name="Multiplicar">X</string>
+    <string name="numCuatro">4</string>
+    <string name="numCinco">5</string>
+    <string name="numSeis">6</string>
+    <string name="Restar">-</string>
+    <string name="numUno">1</string>
+    <string name="numDos">2</string>
+    <string name="numTres">3</string>
+    <string name="Sumar">+</string>
+    <string name="numZero">0</string>
+    <string name="Coma">,</string>
+    <string name="Igual">=</string>
+
+    <string name="settings_name">SETTINGS</string>
+    <string name="exit_name">EXIT</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="opcionOperaciones">Habilitar/deshabilitar operaciones de cálculo</string>
+
+    <!--colores para las teclas de operandos-->
+    <string-array name="color_TeclasOperandos">
+        <item name="Rojo">Rojo</item>
+        <item name="Morado">Morado</item>
+        <item name="Azul oscuro">Azul oscuro</item>
+        <item name="Azul claro">Azul claro</item>
+        <item name="Verde oscuro">Verde oscuro</item>
+        <item name="Amarillo">Amarillo</item>
+    </string-array>
+
+    <!--colores para las teclas de las operaciones-->
+    <string-array name="color_TeclasOperaciones">
+        <item name="Gris">Gris</item>
+        <item name="Marron">Marron</item>
+        <item name="Naranja">Naranja</item>
+        <item name="Verde claro">Verde claro</item>
+        <item name="Azul turquesa">Azul turquesa</item>
+        <item name="Lila">Lila</item>
+    </string-array>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+</resources>

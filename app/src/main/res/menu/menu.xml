@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/settings_name"
+        app:showAsAction="never"
+        >
+        <!-- showAsAction sirve para mostrar u ocultar los items del menu-->
+        <!-- En caso de querer mostrar una lista desplegable utilizar "never"-->
+        <!-- En caso de querer mostrar un elemento de la lista desplegable utilizar "always"-->
+        <!-- En caso de querer cuadrar el cuadro de opciones "ifRoom"-->
+    </item>
+
+    <!--Para introducir los valores del menu ir declarandolos en esta clase por items -->
+    <!--<item
+        android:id="@+id/action_exit"
+        android:title="@string/exit_name"
+        app:showAsAction="never"></item> -->
+
+</menu>

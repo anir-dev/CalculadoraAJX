@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <include
+        layout="@layout/action_bar"
+        android:id="@id/action_bar">
+    </include>
+
+    <CheckBox
+        android:id="@+id/checkBoxOperacionesCalculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/action_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="@string/opcionOperaciones" />
+
+    <TextView
+        android:id="@+id/textViewColorTeclasOperandos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/checkBoxOperacionesCalculo"
+        android:layout_alignStart="@+id/checkBoxOperacionesCalculo"
+        android:layout_below="@+id/checkBoxOperacionesCalculo"
+        android:layout_marginTop="17dp"
+        android:text="Seleccione el color para las teclas de los operandos: "
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinnerColorTeclasOperandos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewColorTeclasOperandos"
+        android:layout_alignStart="@+id/textViewColorTeclasOperandos"
+        android:layout_below="@+id/textViewColorTeclasOperandos" />
+
+    <TextView
+        android:id="@+id/textViewColorTeclasOperaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spinnerColorTeclasOperandos"
+        android:layout_alignStart="@+id/spinnerColorTeclasOperandos"
+        android:layout_below="@+id/spinnerColorTeclasOperandos"
+        android:layout_marginTop="26dp"
+        android:text="Seleccione el color para las teclas de las operaciones"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinnerColorTeclasOperaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewColorTeclasOperaciones"
+        android:layout_alignStart="@+id/textViewColorTeclasOperaciones"
+        android:layout_below="@+id/textViewColorTeclasOperaciones"
+        android:layout_marginTop="13dp" />
+
+</RelativeLayout>

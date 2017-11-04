@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/action_bar"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:theme="@style/CustomToolbarStyle"
+    app:popupTheme="@style/CustomPopupStyle">
+    <!--Estas don ultimas lineas sirven para añadir el estilo creado de la toolbar -->
+
+</android.support.v7.widget.Toolbar>
