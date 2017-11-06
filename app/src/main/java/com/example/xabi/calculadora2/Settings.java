@@ -15,6 +15,7 @@ package com.example.xabi.calculadora2;
 
 public class Settings extends AppCompatActivity {
     String [] teclasOperandos;
+
     private static final int[] ArrayteclasOperandos = {
             R.id.btn0,
             R.id.btn1,
@@ -29,6 +30,8 @@ public class Settings extends AppCompatActivity {
             R.id.btnComa,
     };
 
+
+
     String [] teclasOperaciones;
     private static final int[] ArrayTeclasOperaciones = {
             R.id.btnBorrar,
@@ -39,6 +42,7 @@ public class Settings extends AppCompatActivity {
             R.id.btnSumar,
             R.id.btnIgual,
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +61,14 @@ public class Settings extends AppCompatActivity {
         final Spinner spinnerTeclasOperandos=(Spinner)findViewById(R.id.spinnerColorTeclasOperandos);
         Spinner spinnerTeclasOperaciones=(Spinner)findViewById(R.id.spinnerColorTeclasOperaciones);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, teclasOperandos);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, teclasOperandos);
         ArrayAdapter<String> adapter2= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice,teclasOperaciones);
+
+
+        final Button botonesOperandos[]=new Button[11];
+        botonesOperandos[0]=(Button) findViewById(R.id.btn0);
+        botonesOperandos[1]=(Button) findViewById(R.id.btn1);
+
 
         spinnerTeclasOperandos.setAdapter(adapter);
         //spinner Teclas Operandos
@@ -68,6 +78,13 @@ public class Settings extends AppCompatActivity {
                 int indice = arg0.getSelectedItemPosition();
                 switch (indice){
                     case 0:
+
+                        /*
+                        botonesOperandos[indice].setBackgroundColor();
+                        for(int i=0;i<ArrayteclasOperandos.length;i++){
+
+                        }*/
+                    case 1:
 
                 }
             }
