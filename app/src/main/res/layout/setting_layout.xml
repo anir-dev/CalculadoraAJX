@@ -23,7 +23,7 @@
         android:layout_alignStart="@+id/checkBoxOperacionesCalculo"
         android:layout_below="@+id/checkBoxOperacionesCalculo"
         android:layout_marginTop="17dp"
-        android:text="Seleccione el color para las teclas de los operandos: "
+        android:text="@string/textview_teclas_operandos"
         android:textStyle="bold" />
 
     <Spinner
@@ -42,7 +42,7 @@
         android:layout_alignStart="@+id/spinnerColorTeclasOperandos"
         android:layout_below="@+id/spinnerColorTeclasOperandos"
         android:layout_marginTop="26dp"
-        android:text="Seleccione el color para las teclas de las operaciones"
+        android:text="@string/textview_teclas_operaciones"
         android:textStyle="bold" />
 
     <Spinner

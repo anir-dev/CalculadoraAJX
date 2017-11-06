@@ -19,6 +19,7 @@
     <string name="numZero">0</string>
     <string name="Coma">,</string>
     <string name="Igual">=</string>
+    <string name="MinusPlus">-/+</string>
 
     <string name="settings_name">SETTINGS</string>
     <string name="exit_name">EXIT</string>
@@ -27,6 +28,7 @@
 
     <!--colores para las teclas de operandos-->
     <string-array name="color_TeclasOperandos">
+        <item name="Defecto">Por defecto</item>
         <item name="Rojo">Rojo</item>
         <item name="Morado">Morado</item>
         <item name="Azul oscuro">Azul oscuro</item>
@@ -37,6 +39,7 @@
 
     <!--colores para las teclas de las operaciones-->
     <string-array name="color_TeclasOperaciones">
+        <item name="Defecto">Por defecto</item>
         <item name="Gris">Gris</item>
         <item name="Marron">Marron</item>
         <item name="Naranja">Naranja</item>
@@ -54,5 +57,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="textview_teclas_operandos">Seleccione el color para las teclas de los operandos:</string>
+    <string name="textview_teclas_operaciones">Seleccione el color para las teclas de las operaciones</string>
 
 </resources>

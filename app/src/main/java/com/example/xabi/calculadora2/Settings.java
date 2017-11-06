@@ -5,6 +5,7 @@ package com.example.xabi.calculadora2;
         import android.view.View;
         import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
+        import android.widget.Button;
         import android.widget.Spinner;
         import android.widget.Toast;
 
@@ -14,7 +15,31 @@ package com.example.xabi.calculadora2;
 
 public class Settings extends AppCompatActivity {
     String [] teclasOperandos;
+    private static final int[] ArrayteclasOperandos = {
+            R.id.btn0,
+            R.id.btn1,
+            R.id.btn2,
+            R.id.btn3,
+            R.id.btn4,
+            R.id.btn5,
+            R.id.btn6,
+            R.id.btn7,
+            R.id.btn8,
+            R.id.btn9,
+            R.id.btnComa,
+    };
+
     String [] teclasOperaciones;
+    private static final int[] ArrayTeclasOperaciones = {
+            R.id.btnBorrar,
+            R.id.btnRaizCuadrada,
+            R.id.btnPotencia,
+            R.id.btnMultiplicar,
+            R.id.btnRestar,
+            R.id.btnSumar,
+            R.id.btnIgual,
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +54,7 @@ public class Settings extends AppCompatActivity {
         teclasOperandos=getResources().getStringArray(R.array.color_TeclasOperandos);
         teclasOperaciones=getResources().getStringArray(R.array.color_TeclasOperaciones);
 
-        Spinner spinnerTeclasOperandos=(Spinner)findViewById(R.id.spinnerColorTeclasOperandos);
+        final Spinner spinnerTeclasOperandos=(Spinner)findViewById(R.id.spinnerColorTeclasOperandos);
         Spinner spinnerTeclasOperaciones=(Spinner)findViewById(R.id.spinnerColorTeclasOperaciones);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, teclasOperandos);
@@ -41,6 +66,10 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 int indice = arg0.getSelectedItemPosition();
+                switch (indice){
+                    case 0:
+
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
