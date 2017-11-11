@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnOpcion,btnBorrar;
     private static String s="";
     private TextView texto;
+    String textoGuardado;
     protected String operador,op1, op2;
     protected double operando1, operando2, resultado;
     protected boolean terminado=false;
@@ -50,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
             valorCheckBoxRaizCuadrada=parametros.getBoolean("valorCheckBoxRaizCuadrada");
             valorTeclasOperaciones=parametros.getInt("valorTeclasOperaciones");
             valorTeclasOperandos=parametros.getInt("valorTeclasOperandos");
+            //textoGuardado=parametros.getString("texto");
+            //texto.setText(parametros.getString("texto"));
+            //texto.setText(textoGuardado);
         }
+
         ArrayTeclasOperaciones= new Button[]{findViewById(R.id.btnBorrar),
                 findViewById(R.id.btnRaizCuadrada),
                 findViewById(R.id.btnPotencia),
@@ -199,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
         resultado = 0;
         operando1 = 0;
         operando2 = 0;
+
         //se le asigna una doble funcion al boton de borrar
         //OnClick significa cuando se pulse el boton
         btnBorrar.setOnClickListener(new View.OnClickListener() {
@@ -241,7 +247,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                this.finish();
+                //this.finish();
+                //en lugar de finish() poner finishAffinity() para cerrar la aplicacion
+                finishAffinity();
                 Toast.makeText(this, "Has seleccionado la opcion salir", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_settings:
@@ -364,6 +372,7 @@ public class MainActivity extends AppCompatActivity {
     public void btnSettingsPulsado(){
         Toast.makeText(this, "Seleccione la configuracion requerida", Toast.LENGTH_SHORT).show();
         Intent a=new Intent(MainActivity.this,Settings.class);
+        //a.putExtra("texto",texto.getText().toString());
         startActivity(a);
         //Toast.makeText(this, "aaaaa", Toast.LENGTH_SHORT).show();
     }

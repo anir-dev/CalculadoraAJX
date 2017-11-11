@@ -35,6 +35,7 @@ public class Settings extends AppCompatActivity {
              findViewById(R.id.btnIgual),
     };*/
 
+    String texto=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class Settings extends AppCompatActivity {
         //para cargar los spinner en la actividad
 
 
+        //Bundle textoGuardado=this.getIntent().getExtras();
+        //texto=textoGuardado.getString("texto");
 
         String [] teclasOperandos;
 
@@ -230,7 +233,8 @@ public class Settings extends AppCompatActivity {
         parametros.putBoolean("valorCheckBoxDividir",estadoCheckBoxDividir);
         parametros.putBoolean("valorCheckBoxPotencia",estadoCheckBoxPotencia);
         parametros.putBoolean("valorCheckBoxRaizCuadrada",estadoCheckBoxRaizCuadrada);
-        finishActivity(MainActivity.class.getModifiers());
+        //parametros.putString("texto",texto);
+        //finishActivity(MainActivity.class.getModifiers());
         Intent enviar=new Intent(this,MainActivity.class);
         enviar.putExtras(parametros);
         startActivity(enviar);
