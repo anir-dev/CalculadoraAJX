@@ -6,9 +6,10 @@
     <color name="greyButton">#aaa</color>
     <color name="background_dark">#ff000000</color>
     <color name="background_light">#ffffffff</color>
+    <color name="textoSettings">#FAFAFA</color>
 
     <!--array para colores teclas operandos-->
-    <!--
+
     <array name="color_teclasOperandos">
         <item name="Rojo">#F44336</item>
         <item name="Morado">#9C27B0</item>
@@ -17,9 +18,9 @@
         <item name="Verde oscuro">#4CAF50</item>
         <item name="Amarillo">#FFFF00</item>
     </array>
-    -->
+
     <!--array para colores teclas operaciones-->
-    <!--
+
     <array name="color_teclasOperaciones">
         <item name="Gris">#78909C</item>
         <item name="Marron">#A1887F</item>
@@ -28,8 +29,8 @@
         <item name="Azul turquesa">#64FFDA</item>
         <item name="Lila">#E040FB</item>
     </array>
-    -->
-    <!--
+
+
     <color name="color_teclasOperandos1">#F44336</color>
     <color name="color_teclasOperandos2">#9C27B0</color>
     <color name="color_teclasOperandos3">#3F51B5</color>
@@ -37,12 +38,12 @@
     <color name="color_teclasOperandos5">#4CAF50</color>
     <color name="color_teclasOperandos6">#FFFF00</color>
 
-    colores teclas operaciones
-    <color name="color_teclasOperaciones1">#78909C</color>
+    <!--colores teclas operaciones-->
+    <color name="color_teclasOperaciones1">#E91E63</color>
     <color name="color_teclasOperaciones2">#A1887F</color>
     <color name="color_teclasOperaciones3">#FF5722</color>
     <color name="color_teclasOperaciones4">#76FF03</color>
     <color name="color_teclasOperaciones5">#64FFDA</color>
     <color name="color_teclasOperaciones6">#E040FB</color>
-    -->
+
 </resources>
