@@ -17,23 +17,13 @@ import java.io.Serializable;
 
 public class Settings extends AppCompatActivity {
 
-
+    private static String DATOS_SETTINGS;
     int auxTeclasOperandos;
     int auxTeclasOperaciones;
     CheckBox checkBoxSumar,checkBoxRestar,checkBoxMultiplicar,checkBoxDividir,checkBoxPotencia,checkBoxRaizCuadrada;
     Boolean estadoCheckBoxSumar,estadoCheckBoxRestar,estadoCheckBoxMultiplicar,estadoCheckBoxDividir,estadoCheckBoxPotencia,estadoCheckBoxRaizCuadrada;
     Button btnConfirmar;
     String [] teclasOperaciones;
-    /*
-     final Button[] ArrayTeclasOperaciones = {
-            findViewById(R.id.btnBorrar),
-             findViewById(R.id.btnRaizCuadrada),
-             findViewById(R.id.btnPotencia),
-             findViewById(R.id.btnMultiplicar),
-             findViewById(R.id.btnRestar),
-             findViewById(R.id.btnSumar),
-             findViewById(R.id.btnIgual),
-    };*/
 
     String texto=null;
 
@@ -53,27 +43,20 @@ public class Settings extends AppCompatActivity {
         checkBoxPotencia=(CheckBox)findViewById(R.id.checkBoxPotencia);
         checkBoxRaizCuadrada=(CheckBox)findViewById(R.id.checkBoxRaizCuadrada);
         btnConfirmar=(Button)findViewById(R.id.btnConfirmar);
+
+        //valores por defecto para los checkbox
+        checkBoxSumar.setChecked(true);
+        checkBoxRestar.setChecked(true);
+        checkBoxMultiplicar.setChecked(true);
+        checkBoxDividir.setChecked(true);
+        checkBoxPotencia.setChecked(true);
+        checkBoxRaizCuadrada.setChecked(true);
+
         //para cargar los spinner en la actividad
 
 
-        //Bundle textoGuardado=this.getIntent().getExtras();
-        //texto=textoGuardado.getString("texto");
-
         String [] teclasOperandos;
 
-        /*final Button[] ArrayteclasOperandos = {
-                findViewById(R.id.btn0),
-                findViewById(R.id.btn1),
-                findViewById(R.id.btn2),
-                findViewById(R.id.btn3),
-                findViewById(R.id.btn4),
-                findViewById(R.id.btn5),
-                findViewById(R.id.btn6),
-                findViewById(R.id.btn7),
-                findViewById(R.id.btn8),
-                findViewById(R.id.btn9),
-                findViewById(R.id.btnComa),
-        };*/
 
         teclasOperandos=getResources().getStringArray(R.array.color_TeclasOperandos);
         teclasOperaciones=getResources().getStringArray(R.array.color_TeclasOperaciones);
@@ -85,11 +68,6 @@ public class Settings extends AppCompatActivity {
         ArrayAdapter<String> adapter2= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice,teclasOperaciones);
 
 
-        /*final Button botonesOperandos[]=new Button[11];
-        botonesOperandos[0]=(Button) findViewById(R.id.btn0);
-        botonesOperandos[1]=(Button) findViewById(R.id.btn1);*/
-
-
         spinnerTeclasOperandos.setAdapter(adapter);
         //spinner Teclas Operandos
         spinnerTeclasOperandos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -99,46 +77,6 @@ public class Settings extends AppCompatActivity {
                 Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
                 auxTeclasOperandos=indice;
                 //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                switch (indice){
-                    case 0:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        /*for(int i=0;i<ArrayteclasOperandos.length-1;i++){
-                            ArrayteclasOperandos[i].setBackgroundColor(getResources().getColor(R.color.greyButton));
-                        }*/
-                        break;
-
-                    //ArrayteclasOperandos[indice].setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                        /*
-                        botonesOperandos[indice].setBackgroundColor();
-                         */
-                    case 1:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        //for(int i=0;i<ArrayteclasOperandos.length-1;i++){
-                        //ArrayteclasOperandos[i].setBackgroundColor(getResources().getColor(R.color.color_teclasOperandos1));
-                        //)}
-                        break;
-                    //ArrayteclasOperandos[indice].setBackgroundColor(getResources().getColor(R.color.color_teclasOperaciones1));
-                    case 2:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-
-                        break;
-                    case 3:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-
-                        break;
-                    case 4:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-
-                        break;
-                    case 5:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-
-                        break;
-                    case 6:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-
-                        break;
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -157,41 +95,6 @@ public class Settings extends AppCompatActivity {
 
                 //jugar con el finish() aqui para que cuando seleccione un item cierra la actividad abierta por defecto
                 // con la actividad avierta por defecto me refiero a la primera carga de la actividad MainActivity
-                switch (indice){
-                    case 0:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-
-                        break;
-
-                    //ArrayteclasOperandos[indice].setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                        /*
-                        botonesOperandos[indice].setBackgroundColor();
-                        for(int i=0;i<ArrayteclasOperandos.length-1;i++){
-                            ArrayteclasOperandos[i].setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                        }
-                        */
-                    case 1:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        //ArrayteclasOperandos[arg2].setBackgroundColor(getResources().getColor(R.color.color_teclasOperaciones1));
-
-                        break;
-
-                    case 2:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        break;
-                    case 4:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        break;
-                    case 5:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        break;
-                    case 6:
-                        //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
-                        break;
-                }
             }
 
             @Override
@@ -201,19 +104,6 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        /*btnConfirmar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                estadoCheckBoxSumar=checkBoxSumar.isChecked()?true:false;
-                estadoCheckBoxRestar=checkBoxRestar.isChecked()?true:false;
-                estadoCheckBoxMultiplicar=checkBoxMultiplicar.isChecked()?true:false;
-                estadoCheckBoxDividir=checkBoxDividir.isChecked()?true:false;
-                estadoCheckBoxPotencia=checkBoxPotencia.isChecked()?true:false;
-                estadoCheckBoxRaizCuadrada=checkBoxRaizCuadrada.isChecked()?true:false;
-
-
-            }
-        });*/
     }
     public void comprobarCheckBox(View view){
         estadoCheckBoxSumar=checkBoxSumar.isChecked()?true:false;
@@ -235,9 +125,13 @@ public class Settings extends AppCompatActivity {
         parametros.putBoolean("valorCheckBoxRaizCuadrada",estadoCheckBoxRaizCuadrada);
         //parametros.putString("texto",texto);
         //finishActivity(MainActivity.class.getModifiers());
-        Intent enviar=new Intent(this,MainActivity.class);
-        enviar.putExtras(parametros);
-        startActivity(enviar);
+        //Intent enviar=new Intent(this,MainActivity.class);
+        Intent anIntent=new Intent();
+        anIntent.putExtra(DATOS_SETTINGS,parametros);
+        setResult(RESULT_OK,anIntent);
+        //enviar.putExtras(parametros);
+        //startActivity(enviar);
+        //setResult(RESULT_OK,enviar);
         finish();
 
     }
@@ -249,12 +143,4 @@ public class Settings extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    /*public void comprobarCheckBox(View v){
-        estadoCheckBox=checkTeclasOperaciones.isChecked()?true:false;
-    }*/
-    /*
-    Los dos siguientes metodos sirven para cargar las opciones del menu en el activity mai*/
-
-
 }
