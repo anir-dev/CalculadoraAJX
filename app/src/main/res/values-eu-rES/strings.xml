@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CALCULADORA AJX</string>
+    <string name="app_name">Kalkulagailua AJX</string>
     <string name="ac">AC</string>
     <string name="RaizCuadrada">√</string>
     <string name="Potencia">X^</string>
@@ -22,30 +22,30 @@
     <string name="Igual">=</string>
     <string name="MinusPlus">-/+</string>
 
-    <string name="settings_name">SETTINGS</string>
-    <string name="exit_name">EXIT</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="opcionOperaciones">Habilitar/deshabilitar operaciones de cálculo</string>
+    <string name="settings_name">KONFIGURAZIOA</string>
+    <string name="exit_name">IRTEN</string>
+    <string name="title_activity_settings">Konfigurazioa</string>
+    <string name="opcionOperaciones">Aktibatu/Desaktibatu operazio aukerak</string>
 
     <!--colores para las teclas de operandos-->
     <string-array name="color_TeclasOperandos">
-        <item name="Defecto">Por defecto</item>
-        <item name="Rojo">Rojo</item>
-        <item name="Morado">Morado</item>
-        <item name="Azul oscuro">Azul oscuro</item>
-        <item name="Azul claro">Azul claro</item>
-        <item name="Verde oscuro">Verde oscuro</item>
-        <item name="Amarillo">Amarillo</item>
+        <item name="Defecto">Balore lehenetsia</item>
+        <item name="Rojo">Gorria</item>
+        <item name="Morado">Morea</item>
+        <item name="Azul oscuro">Urdin iluna</item>
+        <item name="Azul claro">Urdin argia</item>
+        <item name="Verde oscuro">Berde iluna</item>
+        <item name="Amarillo">Horia</item>
     </string-array>
 
     <!--colores para las teclas de las operaciones-->
     <string-array name="color_TeclasOperaciones">
-        <item name="Defecto">Por defecto</item>
-        <item name="Rosa">Rosa</item>
-        <item name="Marron">Marron</item>
-        <item name="Naranja">Naranja</item>
-        <item name="Verde claro">Verde claro</item>
-        <item name="Azul turquesa">Azul turquesa</item>
+        <item name="Defecto">Balore lehenetsia</item>
+        <item name="Rosa">Arrosa</item>
+        <item name="Marron">Marroia</item>
+        <item name="Naranja">Laranja</item>
+        <item name="Verde claro">Berde argia</item>
+        <item name="Azul turquesa">Urdin turkesa</item>
         <item name="Lila">Lila</item>
     </string-array>
 

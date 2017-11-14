@@ -17,7 +17,7 @@ import java.io.Serializable;
 
 public class Settings extends AppCompatActivity {
 
-    private static String DATOS_SETTINGS;
+    private static String DATOS_SETTINGS="datos";
     int auxTeclasOperandos;
     int auxTeclasOperaciones;
     CheckBox checkBoxSumar,checkBoxRestar,checkBoxMultiplicar,checkBoxDividir,checkBoxPotencia,checkBoxRaizCuadrada;
@@ -36,6 +36,8 @@ public class Settings extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
         checkBoxSumar=(CheckBox)findViewById(R.id.checkBoxSumar);
         checkBoxRestar=(CheckBox)findViewById(R.id.checkBoxRestar);
         checkBoxMultiplicar=(CheckBox)findViewById(R.id.checkBoxMultiplicar);
@@ -51,6 +53,8 @@ public class Settings extends AppCompatActivity {
         checkBoxDividir.setChecked(true);
         checkBoxPotencia.setChecked(true);
         checkBoxRaizCuadrada.setChecked(true);
+
+
 
         //para cargar los spinner en la actividad
 
@@ -104,6 +108,29 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+
+        Bundle in=new Bundle();
+        //boolean b;
+        in=this.getIntent().getExtras().getBundle("baul");
+
+        if (in!=null) {
+            estadoCheckBoxSumar=in.getBoolean("suma");
+            estadoCheckBoxRestar=in.getBoolean("resta");
+            estadoCheckBoxMultiplicar=in.getBoolean("multiplicar");
+            estadoCheckBoxDividir=in.getBoolean("dividir");
+            estadoCheckBoxPotencia=in.getBoolean("potencia");
+            estadoCheckBoxRaizCuadrada=in.getBoolean("raiz");
+            auxTeclasOperaciones=in.getInt("valorTeclasOperaciones");
+            auxTeclasOperandos=in.getInt("valorTeclasOperandos");
+            checkBoxSumar.setChecked(estadoCheckBoxSumar);
+            checkBoxRestar.setChecked(estadoCheckBoxRestar);
+            checkBoxMultiplicar.setChecked(estadoCheckBoxMultiplicar);
+            checkBoxDividir.setChecked(estadoCheckBoxDividir);
+            checkBoxPotencia.setChecked(estadoCheckBoxPotencia);
+            checkBoxRaizCuadrada.setChecked(estadoCheckBoxRaizCuadrada);
+            spinnerTeclasOperandos.setSelection(auxTeclasOperandos);
+            spinnerTeclasOperaciones.setSelection(auxTeclasOperaciones);
+        }
     }
     public void comprobarCheckBox(View view){
         estadoCheckBoxSumar=checkBoxSumar.isChecked()?true:false;

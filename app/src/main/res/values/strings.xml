@@ -21,9 +21,9 @@
     <string name="Igual">=</string>
     <string name="MinusPlus">-/+</string>
 
-    <string name="settings_name">SETTINGS</string>
-    <string name="exit_name">EXIT</string>
-    <string name="title_activity_settings">Settings</string>
+    <string name="settings_name">OPCIONES</string>
+    <string name="exit_name">SALIR</string>
+    <string name="title_activity_settings">Opciones</string>
     <string name="opcionOperaciones">Habilitar/deshabilitar operaciones de cálculo</string>
 
     <!--colores para las teclas de operandos-->

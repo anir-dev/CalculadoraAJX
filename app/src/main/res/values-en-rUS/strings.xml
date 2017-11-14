@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CALCULADORA AJX</string>
+    <string name="app_name">Calculator AJX</string>
     <string name="ac">AC</string>
     <string name="RaizCuadrada">√</string>
     <string name="Potencia">X^</string>
@@ -25,28 +25,28 @@
     <string name="settings_name">SETTINGS</string>
     <string name="exit_name">EXIT</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="opcionOperaciones">Habilitar/deshabilitar operaciones de cálculo</string>
+    <string name="opcionOperaciones">Enable/disable calculation options</string>
 
     <!--colores para las teclas de operandos-->
     <string-array name="color_TeclasOperandos">
-        <item name="Defecto">Por defecto</item>
-        <item name="Rojo">Rojo</item>
-        <item name="Morado">Morado</item>
-        <item name="Azul oscuro">Azul oscuro</item>
-        <item name="Azul claro">Azul claro</item>
-        <item name="Verde oscuro">Verde oscuro</item>
-        <item name="Amarillo">Amarillo</item>
+        <item name="Defecto">Default</item>
+        <item name="Rojo">Red</item>
+        <item name="Morado">Purple</item>
+        <item name="Azul oscuro">Dark blue</item>
+        <item name="Azul claro">Light blue</item>
+        <item name="Verde oscuro">Dark green</item>
+        <item name="Amarillo">Yellow</item>
     </string-array>
 
     <!--colores para las teclas de las operaciones-->
     <string-array name="color_TeclasOperaciones">
-        <item name="Defecto">Por defecto</item>
-        <item name="Rosa">Rosa</item>
-        <item name="Marron">Marron</item>
-        <item name="Naranja">Naranja</item>
-        <item name="Verde claro">Verde claro</item>
-        <item name="Azul turquesa">Azul turquesa</item>
-        <item name="Lila">Lila</item>
+        <item name="Defecto">Default</item>
+        <item name="Rosa">Pink</item>
+        <item name="Marron">Brown</item>
+        <item name="Naranja">Orange</item>
+        <item name="Verde claro">Light green</item>
+        <item name="Azul turquesa">Turquoise</item>
+        <item name="Lila">Lilac</item>
     </string-array>
 
     <!-- Example settings for Notifications -->

@@ -9,18 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
-
 public class MainActivity extends AppCompatActivity {
     private static int REQUEST_CODE1=1;
-    Boolean valorCheckBoxSumar;
-    Boolean valorCheckBoxRestar;
-    Boolean valorCheckBoxMultiplicar;
-    Boolean valorCheckBoxDividir;
-    Boolean valorCheckBoxPotencia;
-    Boolean valorCheckBoxRaizCuadrada;
-
-    Button[] ArrayTeclasOperaciones = {};
+    Boolean valorCheckBoxSumar=true;
+    Boolean valorCheckBoxRestar=true;
+    Boolean valorCheckBoxMultiplicar=true;
+    Boolean valorCheckBoxDividir=true;
+    Boolean valorCheckBoxPotencia=true;
+    Boolean valorCheckBoxRaizCuadrada=true;
+    Bundle parametros=new Bundle();
+    Button[]  arrayTeclasOperaciones = {};
+    Button[] arrayteclasOperandos = {};
 
     //se crean las variables para enlazarlas con los los del diseño
     private Button btnOpcion,btnBorrar;
@@ -32,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
     protected boolean terminado=false,comprobado;
     private static boolean listo=false; //Marca si ya se ha metido un operador o no
     protected TextView pantalla;
+    int valorTeclasOperandos=0;
+    int valorTeclasOperaciones=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //recibir los datos de la activity settings
-        int valorTeclasOperandos=0;
-        int valorTeclasOperaciones=0;
         valorCheckBoxSumar = true;
         valorCheckBoxRestar=true;
         valorCheckBoxMultiplicar=true;
@@ -48,19 +47,8 @@ public class MainActivity extends AppCompatActivity {
         valorCheckBoxRaizCuadrada=true;
 
 
-        Bundle parametros = this.getIntent().getExtras();
-        if(parametros!=null){
-            valorCheckBoxSumar=parametros.getBoolean("valorCheckBoxSumar");
-            valorCheckBoxRestar=parametros.getBoolean("valorCheckBoxRestar");
-            valorCheckBoxMultiplicar=parametros.getBoolean("valorCheckBoxMultiplicar");
-            valorCheckBoxDividir=parametros.getBoolean("valorCheckBoxDividir");
-            valorCheckBoxPotencia=parametros.getBoolean("valorCheckBoxPotencia");
-            valorCheckBoxRaizCuadrada=parametros.getBoolean("valorCheckBoxRaizCuadrada");
-            valorTeclasOperaciones=parametros.getInt("valorTeclasOperaciones");
-            valorTeclasOperandos=parametros.getInt("valorTeclasOperandos");
-        }
 
-        ArrayTeclasOperaciones= new Button[]{findViewById(R.id.btnBorrar),
+         arrayTeclasOperaciones= new Button[]{findViewById(R.id.btnBorrar),
                 findViewById(R.id.btnRaizCuadrada),
                 findViewById(R.id.btnPotencia),
                 findViewById(R.id.btnDividir),
@@ -68,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.btnRestar),
                 findViewById(R.id.btnSumar),
                 findViewById(R.id.btnIgual),};
-        habilitarDesabilitarOperacionesCalculo();
+        //habilitarDesabilitarOperacionesCalculo();
 
         //cargar los botones para el cambio de configuracion
 
-        final Button[] ArrayteclasOperandos = {
+        arrayteclasOperandos =new Button[] {
                 findViewById(R.id.btn0),
                 findViewById(R.id.btn1),
                 findViewById(R.id.btn2),
@@ -85,84 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.btn9),
                 findViewById(R.id.btnComa),
         };
-
-
-        //switch para cambiar el color de las teclas de los operandos
-        switch(valorTeclasOperandos){
-            case 0:
-                for(int i=0;i<ArrayteclasOperandos.length;i++){
-                    ArrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.boton_redondo));
-                }
-                break;
-            case 1:
-                for(int i=0;i<ArrayteclasOperandos.length;i++){
-                    ArrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_rojo));
-                        }
-                break;
-            case 2:
-                for(int i=0;i<ArrayteclasOperandos.length;i++){
-                    ArrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_morado));
-                }
-                break;
-            case 3:
-                for(int i=0;i<ArrayteclasOperandos.length;i++){
-                    ArrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_azuloscuro));
-                }
-                break;
-            case 4:
-                for(int i=0;i<ArrayteclasOperandos.length;i++){
-                    ArrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_azulclaro));
-                }
-                break;
-            case 5:
-                for(int i=0;i<ArrayteclasOperandos.length;i++){
-                    ArrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_verdeoscuro));
-                }
-                break;
-            case 6:
-                for(int i=0;i<ArrayteclasOperandos.length;i++){
-                    ArrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_amarillo));
-                }
-                break;
-        }
-        //switch para cambiar los colores de las teclas de operaciones
-        switch(valorTeclasOperaciones){
-            case 0:
-                for(int i=0;i<ArrayTeclasOperaciones.length;i++){
-                    ArrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.boton_redondo));
-                }
-                break;
-            case 1:
-                for(int i=0;i<ArrayTeclasOperaciones.length;i++){
-                    ArrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_rosa));
-                }
-                break;
-            case 2:
-                for(int i=0;i<ArrayTeclasOperaciones.length;i++){
-                    ArrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_marron));
-                }
-                break;
-            case 3:
-                for(int i=0;i<ArrayTeclasOperaciones.length;i++){
-                    ArrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_naranja));
-                }
-                break;
-            case 4:
-                for(int i=0;i<ArrayTeclasOperaciones.length;i++){
-                    ArrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_verdeclaro));
-                }
-                break;
-            case 5:
-                for(int i=0;i<ArrayTeclasOperaciones.length;i++){
-                    ArrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_azulturquesa));
-                }
-                break;
-            case 6:
-                for(int i=0;i<ArrayTeclasOperaciones.length;i++){
-                    ArrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_lila));
-                }
-                break;
-        }
 
         //se enlazan los atributos con los del diseño
         texto= (TextView) findViewById(R.id.textView);
@@ -390,9 +300,18 @@ public class MainActivity extends AppCompatActivity {
     public void btnSettingsPulsado(){
         Toast.makeText(this, "Seleccione la configuracion requerida", Toast.LENGTH_SHORT).show();
         Intent a=new Intent(MainActivity.this,Settings.class);
-        //a.putExtra("texto",texto.getText().toString());
+        Bundle baul = new Bundle();
+        baul.putBoolean("suma",valorCheckBoxSumar);
+        baul.putBoolean("resta",valorCheckBoxRestar);
+        baul.putBoolean("multiplicar",valorCheckBoxMultiplicar);
+        baul.putBoolean("dividir",valorCheckBoxDividir);
+        baul.putBoolean("potencia",valorCheckBoxPotencia);
+        baul.putBoolean("raiz",valorCheckBoxRaizCuadrada);
+        baul.putInt("valorTeclasOperandos",valorTeclasOperandos);
+        baul.putInt("valorTeclasOperaciones",valorTeclasOperaciones);
+        a.putExtra("baul",baul);
         startActivityForResult(a,REQUEST_CODE1);
-        //Toast.makeText(this, "aaaaa", Toast.LENGTH_SHORT).show();
+
     }
     @Override
     //Para guardar la informacion necesaria que se pierde al girar la pantalla
@@ -423,31 +342,138 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
+        parametros = this.getIntent().getExtras();
         if (requestCode==REQUEST_CODE1){
             if(resultCode==RESULT_OK){
-                //data.getBundleExtra("parametros");
+                parametros=data.getBundleExtra("datos");
+                if(parametros!=null){
+                    valorCheckBoxSumar=parametros.getBoolean("valorCheckBoxSumar");
+                    valorCheckBoxRestar=parametros.getBoolean("valorCheckBoxRestar");
+                    valorCheckBoxMultiplicar=parametros.getBoolean("valorCheckBoxMultiplicar");
+                    valorCheckBoxDividir=parametros.getBoolean("valorCheckBoxDividir");
+                    valorCheckBoxPotencia=parametros.getBoolean("valorCheckBoxPotencia");
+                    valorCheckBoxRaizCuadrada=parametros.getBoolean("valorCheckBoxRaizCuadrada");
+                    valorTeclasOperaciones=parametros.getInt("valorTeclasOperaciones");
+                    valorTeclasOperandos=parametros.getInt("valorTeclasOperandos");
+                }
+                habilitarDesabilitarOperacionesCalculo();
+                cambiarColores();
             }
 
         }
     }
     public void habilitarDesabilitarOperacionesCalculo(){
         if(valorCheckBoxSumar==false){
-            ArrayTeclasOperaciones[6].setEnabled(false);
+             arrayTeclasOperaciones[6].setEnabled(false);
+        }else{
+             arrayTeclasOperaciones[6].setEnabled(true);
         }
         if(!valorCheckBoxRestar){
-            ArrayTeclasOperaciones[5].setEnabled(false);
+             arrayTeclasOperaciones[5].setEnabled(false);
+        }else{
+             arrayTeclasOperaciones[5].setEnabled(true);
         }
         if(!valorCheckBoxMultiplicar){
-            ArrayTeclasOperaciones[4].setEnabled(false);
+             arrayTeclasOperaciones[4].setEnabled(false);
+        }else{
+             arrayTeclasOperaciones[4].setEnabled(true);
         }
         if(!valorCheckBoxDividir){
-            ArrayTeclasOperaciones[3].setEnabled(false);
+             arrayTeclasOperaciones[3].setEnabled(false);
+        }else{
+             arrayTeclasOperaciones[3].setEnabled(true);
         }
         if(!valorCheckBoxPotencia){
-            ArrayTeclasOperaciones[2].setEnabled(false);
+             arrayTeclasOperaciones[2].setEnabled(false);
+        }else{
+             arrayTeclasOperaciones[2].setEnabled(true);
         }
         if(!valorCheckBoxRaizCuadrada){
-            ArrayTeclasOperaciones[1].setEnabled(false);
+             arrayTeclasOperaciones[1].setEnabled(false);
+        }else{
+             arrayTeclasOperaciones[1].setEnabled(true);
+        }
+    }
+
+
+    public  void cambiarColores(){
+
+
+        //switch para cambiar el color de las teclas de los operandos
+        switch(valorTeclasOperandos){
+            case 0:
+                for(int i = 0; i< arrayteclasOperandos.length; i++){
+                    arrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.boton_redondo));
+                }
+                break;
+            case 1:
+                for(int i = 0; i< arrayteclasOperandos.length; i++){
+                    arrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_rojo));
+                }
+                break;
+            case 2:
+                for(int i = 0; i< arrayteclasOperandos.length; i++){
+                    arrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_morado));
+                }
+                break;
+            case 3:
+                for(int i = 0; i< arrayteclasOperandos.length; i++){
+                    arrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_azuloscuro));
+                }
+                break;
+            case 4:
+                for(int i = 0; i< arrayteclasOperandos.length; i++){
+                    arrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_azulclaro));
+                }
+                break;
+            case 5:
+                for(int i = 0; i< arrayteclasOperandos.length; i++){
+                    arrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_verdeoscuro));
+                }
+                break;
+            case 6:
+                for(int i = 0; i< arrayteclasOperandos.length; i++){
+                    arrayteclasOperandos[i].setBackground(getResources().getDrawable(R.drawable.btn_amarillo));
+                }
+                break;
+        }
+        //switch para cambiar los colores de las teclas de operaciones
+        switch(valorTeclasOperaciones){
+            case 0:
+                for(int i=0;i< arrayTeclasOperaciones.length;i++){
+                     arrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.boton_redondo));
+                }
+                break;
+            case 1:
+                for(int i=0;i< arrayTeclasOperaciones.length;i++){
+                     arrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_rosa));
+                }
+                break;
+            case 2:
+                for(int i=0;i< arrayTeclasOperaciones.length;i++){
+                     arrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_marron));
+                }
+                break;
+            case 3:
+                for(int i=0;i< arrayTeclasOperaciones.length;i++){
+                     arrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_naranja));
+                }
+                break;
+            case 4:
+                for(int i=0;i< arrayTeclasOperaciones.length;i++){
+                     arrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_verdeclaro));
+                }
+                break;
+            case 5:
+                for(int i=0;i< arrayTeclasOperaciones.length;i++){
+                     arrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_azulturquesa));
+                }
+                break;
+            case 6:
+                for(int i=0;i< arrayTeclasOperaciones.length;i++){
+                     arrayTeclasOperaciones[i].setBackground(getResources().getDrawable(R.drawable.btn_lila));
+                }
+                break;
         }
     }
 }
