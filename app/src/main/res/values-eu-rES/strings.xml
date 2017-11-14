@@ -58,13 +58,13 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="textview_teclas_operandos">Seleccione el color para las teclas de los operandos:</string>
-    <string name="textview_teclas_operaciones">Seleccione el color para las teclas de las operaciones</string>
-    <string name="btnConfirmarConfig">Confirmar configuracion</string>
-    <string name="checkBoxRestar">Restar</string>
-    <string name="CheckBoxSumar">Sumar</string>
-    <string name="checkBoxRaizCuadrada">Raiz cuadrada</string>
-    <string name="checkBoxPotencia">Potencia</string>
-    <string name="checkBoxMultiplicar">Multiplicar</string>
-    <string name="checkBoxDividir">Dividir</string>
+    <string name="textview_teclas_operandos">Zenbaki botoien kolorea aukeratu</string>
+    <string name="textview_teclas_operaciones">Eragiketa botoien kolorea aukeratu</string>
+    <string name="btnConfirmarConfig">Konfirmatu konfigurazioa</string>
+    <string name="checkBoxRestar">Kenketa</string>
+    <string name="CheckBoxSumar">Batuketa</string>
+    <string name="checkBoxRaizCuadrada">Erro karratua</string>
+    <string name="checkBoxPotencia">Berretura</string>
+    <string name="checkBoxMultiplicar">Biderketa</string>
+    <string name="checkBoxDividir">Zatiketa</string>
 </resources>

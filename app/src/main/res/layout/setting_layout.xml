@@ -31,9 +31,8 @@
         android:id="@+id/checkBoxRaizCuadrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/checkBoxSumar"
-        android:layout_alignBaseline="@id/checkBoxSumar"
-        android:layout_marginLeft="15dp"
+        android:layout_above="@+id/checkBoxMultiplicar"
+        android:layout_centerHorizontal="true"
         android:text="@string/checkBoxRaizCuadrada"/>
 
     <CheckBox
@@ -44,13 +43,14 @@
         android:layout_alignBaseline="@id/checkBoxSumar"
         android:layout_marginLeft="15dp"
         android:text="@string/checkBoxPotencia"/>
+
     <CheckBox
         android:id="@+id/checkBoxMultiplicar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/checkBoxSumar"
-        android:layout_alignBaseline="@id/checkBoxRestar"
-        android:layout_marginLeft="15dp"
+        android:layout_above="@+id/textViewColorTeclasOperandos"
+        android:layout_alignLeft="@+id/checkBoxRaizCuadrada"
+        android:layout_alignStart="@+id/checkBoxRaizCuadrada"
         android:text="@string/checkBoxMultiplicar"/>
 
     <CheckBox

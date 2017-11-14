@@ -58,13 +58,13 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="textview_teclas_operandos">Seleccione el color para las teclas de los operandos:</string>
-    <string name="textview_teclas_operaciones">Seleccione el color para las teclas de las operaciones</string>
-    <string name="btnConfirmarConfig">Confirmar configuracion</string>
-    <string name="checkBoxRestar">Restar</string>
-    <string name="CheckBoxSumar">Sumar</string>
-    <string name="checkBoxRaizCuadrada">Raiz cuadrada</string>
-    <string name="checkBoxPotencia">Potencia</string>
-    <string name="checkBoxMultiplicar">Multiplicar</string>
-    <string name="checkBoxDividir">Dividir</string>
+    <string name="textview_teclas_operandos">Select color for the numbers:</string>
+    <string name="textview_teclas_operaciones">Select color for the operators</string>
+    <string name="btnConfirmarConfig">Confirm configuration</string>
+    <string name="checkBoxRestar">Subtract</string>
+    <string name="CheckBoxSumar">Add</string>
+    <string name="checkBoxRaizCuadrada">Square root</string>
+    <string name="checkBoxPotencia">Potency</string>
+    <string name="checkBoxMultiplicar">Multiply</string>
+    <string name="checkBoxDividir">Divide</string>
 </resources>
