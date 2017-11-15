@@ -324,6 +324,14 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putDouble("oper1", operando1);
         savedInstanceState.putDouble("oper2", operando2);
         savedInstanceState.putDouble("resultado", resultado);
+        savedInstanceState.putBoolean("suma",valorCheckBoxSumar);
+        savedInstanceState.putBoolean("resta",valorCheckBoxRestar);
+        savedInstanceState.putBoolean("multiplicar",valorCheckBoxMultiplicar);
+        savedInstanceState.putBoolean("dividir",valorCheckBoxDividir);
+        savedInstanceState.putBoolean("potencia",valorCheckBoxPotencia);
+        savedInstanceState.putBoolean("raiz",valorCheckBoxRaizCuadrada);
+        savedInstanceState.putInt("valorTeclasOperandos",valorTeclasOperandos);
+        savedInstanceState.putInt("valorTeclasOperaciones",valorTeclasOperaciones);
 
     }
     @Override
@@ -337,6 +345,16 @@ public class MainActivity extends AppCompatActivity {
         operando1 = savedInstanceState.getDouble("oper1");
         operando2 = savedInstanceState.getDouble("oper2");
         resultado = savedInstanceState.getDouble("resultado");
+        valorCheckBoxSumar=savedInstanceState.getBoolean("suma");
+        valorCheckBoxRestar=savedInstanceState.getBoolean("resta");
+        valorCheckBoxMultiplicar=savedInstanceState.getBoolean("multiplicar");
+        valorCheckBoxDividir=savedInstanceState.getBoolean("dividir");
+        valorCheckBoxPotencia=savedInstanceState.getBoolean("potencia");
+        valorCheckBoxRaizCuadrada=savedInstanceState.getBoolean("raiz");
+        valorTeclasOperaciones=savedInstanceState.getInt("valorTeclasOperaciones");
+        valorTeclasOperandos=savedInstanceState.getInt("valorTeclasOperandos");
+        habilitarDesabilitarOperacionesCalculo();
+        cambiarColores();
 
     }
     @Override

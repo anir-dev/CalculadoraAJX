@@ -106,7 +106,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:onClick="confirmarCheck"
+        android:onClick="comprobarCheckBox"
         android:text="@string/btnConfirmarConfig" />
 
 </RelativeLayout>
