@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static int REQUEST_CODE1=1;
+    boolean comaDupli;
     Boolean valorCheckBoxSumar=true;
     Boolean valorCheckBoxRestar=true;
     Boolean valorCheckBoxMultiplicar=true;
@@ -90,7 +91,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(texto.getText().length()!=0){
+                    if(texto.getText().toString().substring(texto.length()-1).equals(",")){
+                     comaDupli=false;
+                    }
                     texto.setText(texto.getText().toString().substring(0,texto.getText().length()-1));
+
                 }
             }
         });
@@ -101,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onLongClick(View view) {
                 //debe retornar un valor boolean
                 texto.setText("");
+                comaDupli=false;
+                listo=false;
                 return true;
             }
         });
@@ -153,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pulsaOperador(View v){
-        if(listo==false) {
+        if(listo==false) { //entra por aqui cuando no se ha puesto ningun operador
             int id;
             Button operador;
             id=v.getId();
@@ -162,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
             listo=true;
             agregarCifra(s);
+            comaDupli=false;
         }else{
             int id;
             Button operador;
@@ -172,18 +180,45 @@ public class MainActivity extends AppCompatActivity {
             String p=u.replace(s,z);
             texto.setText(p);
             s=z;
+            comaDupli=false;
             //terminado=false;
         }
 
     }
     public void pulsaComa(View v) {
         int id;
-        Button decimal;
-        String s="";
-        id=v.getId();
-        decimal=(Button) findViewById(id);
-        s= (String) decimal.getText();
-        agregarCifra(s);
+        int p=texto.length();
+//        String a="3+";
+//        boolean b=a.substring(1).equals("+");
+        int c=0;
+
+        if (p==0 || terminado==true || texto.getText().toString().substring(p-1).equals(this.s)) {
+            Button decimal;
+            String s = "";
+            id = v.getId();
+            decimal = (Button) findViewById(id);
+            s = "0" + (String) decimal.getText();
+            agregarCifra(s);
+        }else{
+//        if(texto.getText().toString().substring(p,1).equals("")){
+//            Button decimal;
+//            String s = "";
+//            id = v.getId();
+//            decimal = (Button) findViewById(id);
+//            s = "0"+(String) decimal.getText();
+//            agregarCifra(s);
+//            comaDupli=true;
+//        }
+        if(comaDupli==false) {
+            Button decimal;
+            String s = "";
+            id = v.getId();
+            decimal = (Button) findViewById(id);
+            s = (String) decimal.getText();
+            agregarCifra(s);
+            comaDupli=true;
+        }
+        }
     }
 
     public void pulsaIgual(View v) {
@@ -247,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
             listo=false;
             terminado=true;
             comprobado=false;
+
         }
 
     }
@@ -281,7 +317,9 @@ public class MainActivity extends AppCompatActivity {
         s="";
         resultado=0;
         texto.setText("");
+        int a=texto.length();
         terminado=false;
+        comaDupli=false;
     }
     public void comprobarcoma(String o1,String o2){
 
