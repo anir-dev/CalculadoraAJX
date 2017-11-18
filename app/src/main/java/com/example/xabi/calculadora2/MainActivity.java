@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     private static int REQUEST_CODE1=1;
     boolean comaDupli;
@@ -26,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btnOpcion,btnBorrar;
     private static String s="";
     private TextView texto;
-    String textoGuardado;
+    Double textoGuardado=0.0;
+    Double resultadoGuardado=0.0;
+    String auxResultadoGuardado="";
     protected String operador,op1, op2;
     protected double operando1, operando2, resultado;
     protected boolean terminado=false,comprobado;
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                      comaDupli=false;
                     }
                     texto.setText(texto.getText().toString().substring(0,texto.getText().length()-1));
-
+                    listo=false;
                 }
             }
         });
@@ -183,7 +187,9 @@ public class MainActivity extends AppCompatActivity {
             comaDupli=false;
             //terminado=false;
         }
+        /*if(texto.getText().toString().length()==0 & textoGuardado!=null){
 
+        }*/
     }
     public void pulsaComa(View v) {
         int id;
@@ -227,7 +233,18 @@ public class MainActivity extends AppCompatActivity {
         String numeros = texto.getText().toString(); //Metemos en un String lo mostrado en pantalla
 
         int limit = numeros.indexOf(s); //Coje la posicion de donde esta el operador
-        if (numeros.isEmpty() || terminado==true){ //Si le dan al igual sin nada en pantalla no hara nada.
+        /*if(limit==0 & textoGuardado!=0){
+            String auxOperador=numeros.substring(0,1).toString();
+            if(auxOperador.equals("X")){
+                resultadoGuardado=textoGuardado* Double.parseDouble(texto.getText().toString());
+                numeros=resultadoGuardado.toString();
+            }else{
+                resultadoGuardado=textoGuardado+ Double.parseDouble(texto.getText().toString());
+                numeros=resultadoGuardado.toString();
+            }
+
+        }*/
+        if (numeros.isEmpty() || terminado==true ||numeros.substring(numeros.length()-1).equals(operador) ){ //Si le dan al igual sin nada en pantalla no hara nada.
 
         }else{
             if (limit == 0) { //Si el limite es = 0 quiere decir que no tiene ningun operador, por lo cual el numero a mostrar es el que ha metido Ejemplo: Mete un 3 -> = Muestra el 3
@@ -282,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
             listo=false;
             terminado=true;
             comprobado=false;
-
+            textoGuardado=resultado;
         }
 
     }
