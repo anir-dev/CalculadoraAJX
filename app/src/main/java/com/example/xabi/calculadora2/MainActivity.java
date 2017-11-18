@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected TextView pantalla;
     int valorTeclasOperandos=0;
     int valorTeclasOperaciones=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
         valorCheckBoxDividir=true;
         valorCheckBoxPotencia=true;
         valorCheckBoxRaizCuadrada=true;
-
-
 
          arrayTeclasOperaciones= new Button[]{findViewById(R.id.btnBorrar),
                 findViewById(R.id.btnRaizCuadrada),
@@ -233,17 +233,29 @@ public class MainActivity extends AppCompatActivity {
         String numeros = texto.getText().toString(); //Metemos en un String lo mostrado en pantalla
 
         int limit = numeros.indexOf(s); //Coje la posicion de donde esta el operador
-        /*if(limit==0 & textoGuardado!=0){
+        if(limit==0 & textoGuardado!=0){
             String auxOperador=numeros.substring(0,1).toString();
             if(auxOperador.equals("X")){
-                resultadoGuardado=textoGuardado* Double.parseDouble(texto.getText().toString());
+                resultadoGuardado=textoGuardado* Double.parseDouble(texto.getText().toString().substring(texto.getText().length()-1));
+                //resultadoGuardado=textoGuardado* Double.parseDouble(String.valueOf(texto.getText()).substring(texto.getText().length()-1)); otra opcion
                 numeros=resultadoGuardado.toString();
+            }else if (auxOperador.equals("÷")){
+                resultadoGuardado=textoGuardado / Double.parseDouble(texto.getText().toString().substring(texto.getText().length()-1));
+                numeros=resultadoGuardado.toString();
+            }else if (auxOperador.equals("√")){
+                resultadoGuardado=Math.sqrt(Double.parseDouble(texto.getText().toString().substring(texto.getText().length()-1)));
+                numeros=resultadoGuardado.toString();
+                //resultado=Math.sqrt(operando2);
+            }else if (auxOperador.equals("X^")) {
+                resultadoGuardado =Math.pow(textoGuardado , Double.parseDouble(texto.getText().toString().substring(texto.getText().length() - 1)));
+                numeros = resultadoGuardado.toString();
+                //Math.pow(operando1, operando2);
             }else{
                 resultadoGuardado=textoGuardado+ Double.parseDouble(texto.getText().toString());
                 numeros=resultadoGuardado.toString();
             }
 
-        }*/
+        }
         if (numeros.isEmpty() || terminado==true ||numeros.substring(numeros.length()-1).equals(operador) ){ //Si le dan al igual sin nada en pantalla no hara nada.
 
         }else{
@@ -293,6 +305,8 @@ public class MainActivity extends AppCompatActivity {
                     resultado=operando1;
                     break;
             }
+            /*DecimalFormat format=new DecimalFormat("#.00");
+            resultado=(Double.parseDouble(format.format(resultado)));*/
             String res=String.valueOf(resultado);
             //Falta comprobar si contiene coma
             texto.setText(res);
