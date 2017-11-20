@@ -247,8 +247,10 @@ public class MainActivity extends AppCompatActivity {
 
         int limit = numeros.indexOf(s); //Coje la posicion de donde esta el operador
         if(limit==0 & textoGuardado!=0){
+            String auxOperador2=numeros.substring(0,2);
             String auxOperador=numeros.substring(0,1);
-            if(auxOperador.equals("X")){
+
+            if(auxOperador.equals("X") & !auxOperador2.equals("X^")){
                 resultadoGuardado=textoGuardado* Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length()));
                 //resultadoGuardado=textoGuardado* Double.parseDouble(String.valueOf(texto.getText()).substring(texto.getText().length()-1)); otra opcion
                 numeros=resultadoGuardado.toString();
@@ -259,8 +261,8 @@ public class MainActivity extends AppCompatActivity {
                 resultadoGuardado=Math.sqrt(Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length())));
                 numeros=resultadoGuardado.toString();
                 //resultado=Math.sqrt(operando2);
-            }else if (auxOperador.equals("X^")) {
-                resultadoGuardado =Math.pow(textoGuardado , Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length())));
+            }else if (auxOperador2.equals("X^")) {
+                resultadoGuardado =Math.pow(textoGuardado , Double.parseDouble(texto.getText().toString().substring(limit+2,texto.getText().length())));
                 numeros = resultadoGuardado.toString();
                 //Math.pow(operando1, operando2);
             }else if (auxOperador.equals("+")) {
