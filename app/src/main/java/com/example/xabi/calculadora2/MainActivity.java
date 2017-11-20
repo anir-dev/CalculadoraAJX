@@ -164,6 +164,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pulsaOperador(View v){
+        //el siguiente if es para controlar la coma
+        if(texto.getText().toString().length()>1){
+            if(texto.getText().toString().substring(texto.getText().length()-1).equals(",")){
+                texto.setText(texto.getText().toString().substring(0,texto.getText().length()-1));
+
+            }
+        }
+
         if(listo==false) { //entra por aqui cuando no se ha puesto ningun operador
             int id;
             Button operador;
@@ -183,7 +191,12 @@ public class MainActivity extends AppCompatActivity {
             String u=texto.getText().toString(); //34+
             String p=u.replace(s,z);
             texto.setText(p);
+            //llamar aqui a pulsar igual para que cuando ya se haya introducido una operacion y se
+            //vuelva a pulsar un operando haga la operacion actual y ponga el siguiente operador
+             //pulsaIgual(v);
+            //texto.setText(resultadoGuardado.toString() + z);
             s=z;
+
             comaDupli=false;
             //terminado=false;
         }
@@ -234,24 +247,33 @@ public class MainActivity extends AppCompatActivity {
 
         int limit = numeros.indexOf(s); //Coje la posicion de donde esta el operador
         if(limit==0 & textoGuardado!=0){
-            String auxOperador=numeros.substring(0,1).toString();
+            String auxOperador=numeros.substring(0,1);
             if(auxOperador.equals("X")){
-                resultadoGuardado=textoGuardado* Double.parseDouble(texto.getText().toString().substring(texto.getText().length()-1));
+                resultadoGuardado=textoGuardado* Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length()));
                 //resultadoGuardado=textoGuardado* Double.parseDouble(String.valueOf(texto.getText()).substring(texto.getText().length()-1)); otra opcion
                 numeros=resultadoGuardado.toString();
             }else if (auxOperador.equals("÷")){
-                resultadoGuardado=textoGuardado / Double.parseDouble(texto.getText().toString().substring(texto.getText().length()-1));
+                resultadoGuardado=textoGuardado / Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length()));
                 numeros=resultadoGuardado.toString();
             }else if (auxOperador.equals("√")){
-                resultadoGuardado=Math.sqrt(Double.parseDouble(texto.getText().toString().substring(texto.getText().length()-1)));
+                resultadoGuardado=Math.sqrt(Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length())));
                 numeros=resultadoGuardado.toString();
                 //resultado=Math.sqrt(operando2);
             }else if (auxOperador.equals("X^")) {
-                resultadoGuardado =Math.pow(textoGuardado , Double.parseDouble(texto.getText().toString().substring(texto.getText().length() - 1)));
+                resultadoGuardado =Math.pow(textoGuardado , Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length())));
                 numeros = resultadoGuardado.toString();
                 //Math.pow(operando1, operando2);
-            }else{
-                resultadoGuardado=textoGuardado+ Double.parseDouble(texto.getText().toString());
+            }else if (auxOperador.equals("+")) {
+                resultadoGuardado=textoGuardado + Double.parseDouble(texto.getText().toString());
+                numeros=resultadoGuardado.toString();
+            }else if (auxOperador.equals("-")) {
+                /*para hacer la resta en este caso hay que seguir la regla matematica
+                -- = +
+                ++ = +
+                -+=-
+                +-=-
+                */
+                resultadoGuardado=textoGuardado + Double.parseDouble(texto.getText().toString());
                 numeros=resultadoGuardado.toString();
             }
 
@@ -305,8 +327,8 @@ public class MainActivity extends AppCompatActivity {
                     resultado=operando1;
                     break;
             }
-            /*DecimalFormat format=new DecimalFormat("#.00");
-            resultado=(Double.parseDouble(format.format(resultado)));*/
+            DecimalFormat format=new DecimalFormat("#.000");
+            resultado=(Double.parseDouble(format.format(resultado)));
             String res=String.valueOf(resultado);
             //Falta comprobar si contiene coma
             texto.setText(res);
