@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected double operando1, operando2, resultado;
     protected boolean terminado=false,comprobado;
     private static boolean listo=false; //Marca si ya se ha metido un operador o no
+    private String auxOpe="";
     protected TextView pantalla;
     int valorTeclasOperandos=0;
     int valorTeclasOperaciones=0;
@@ -180,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
             s= (String) operador.getText();
             Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
             listo=true;
+            auxOpe=s;
             agregarCifra(s);
             comaDupli=false;
         }else{
@@ -196,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
              //pulsaIgual(v);
             //texto.setText(resultadoGuardado.toString() + z);
             s=z;
+            auxOpe=s;
 
             comaDupli=false;
             //terminado=false;
@@ -244,11 +247,15 @@ public class MainActivity extends AppCompatActivity {
         operador = s;
 
         String numeros = texto.getText().toString(); //Metemos en un String lo mostrado en pantalla
-
+        String auxOperador2 ="";
+        String auxOperador ="";
         int limit = numeros.indexOf(s); //Coje la posicion de donde esta el operador
-        if(limit==0 & textoGuardado!=0){
-            String auxOperador2=numeros.substring(0,2);
-            String auxOperador=numeros.substring(0,1);
+        if (numeros.isEmpty() || terminado==true || numeros.substring(numeros.length()-1).equals(auxOpe)){
+
+        }else{
+        if(limit==0){
+                auxOperador2 = numeros.substring(0, 2);
+                auxOperador = numeros.substring(0, 1);
 
             if(auxOperador.equals("X") & !auxOperador2.equals("X^")){
                 resultadoGuardado=textoGuardado* Double.parseDouble(texto.getText().toString().substring(limit+1,texto.getText().length()));
@@ -280,7 +287,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-        if (numeros.isEmpty() || terminado==true ||numeros.substring(numeros.length()-1).equals(operador) ){ //Si le dan al igual sin nada en pantalla no hara nada.
+        }
+        if (numeros.isEmpty() || terminado==true ||numeros.substring(numeros.length()-1).equals(operador) ||numeros.substring(numeros.length()-1).equals(auxOpe) ){ //Si le dan al igual sin nada en pantalla no hara nada.
 
         }else{
             if (limit == 0) { //Si el limite es = 0 quiere decir que no tiene ningun operador, por lo cual el numero a mostrar es el que ha metido Ejemplo: Mete un 3 -> = Muestra el 3
