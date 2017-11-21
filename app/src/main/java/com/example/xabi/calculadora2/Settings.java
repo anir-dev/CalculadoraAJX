@@ -1,6 +1,8 @@
 
 package com.example.xabi.calculadora2;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -159,6 +161,17 @@ public class Settings extends AppCompatActivity {
         //enviar.putExtras(parametros);
         //startActivity(enviar);
         //setResult(RESULT_OK,enviar);
+        SharedPreferences preferencias=getSharedPreferences("datos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor  editor=preferencias.edit();
+        editor.putBoolean("valorCheckBoxSumar", estadoCheckBoxSumar);
+        editor.putBoolean("valorCheckBoxRestar", estadoCheckBoxRestar);
+        editor.putBoolean("valorCheckBoxMultiplicar", estadoCheckBoxMultiplicar);
+        editor.putBoolean("valorCheckBoxDividir", estadoCheckBoxDividir);
+        editor.putBoolean("valorCheckBoxPotencia", estadoCheckBoxPotencia);
+        editor.putBoolean("valorCheckBoxRaizCuadrada", estadoCheckBoxRaizCuadrada);
+        editor.putInt("valorTeclasOperaciones", auxTeclasOperaciones);
+        editor.putInt("valorTeclasOperandos", auxTeclasOperandos);
+        editor.commit();
         finish();
 
     }

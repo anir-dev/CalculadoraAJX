@@ -1,5 +1,7 @@
 package com.example.xabi.calculadora2;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -45,14 +47,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences prefe=getSharedPreferences("datos",Context.MODE_PRIVATE);
+        //et1.setText(prefe.getString("mail",""));
+        valorCheckBoxSumar=prefe.getBoolean("valorCheckBoxSumar",valorCheckBoxSumar);
+        valorCheckBoxRestar=prefe.getBoolean("valorCheckBoxRestar",valorCheckBoxRestar);
+        valorCheckBoxMultiplicar=prefe.getBoolean("valorCheckBoxMultiplicar",valorCheckBoxMultiplicar);
+        valorCheckBoxDividir=prefe.getBoolean("valorCheckBoxDividir",valorCheckBoxDividir);
+        valorCheckBoxPotencia=prefe.getBoolean("valorCheckBoxPotencia",valorCheckBoxPotencia);
+        valorCheckBoxRaizCuadrada=prefe.getBoolean("valorCheckBoxRaizCuadrada",valorCheckBoxRaizCuadrada);
+        valorTeclasOperandos=prefe.getInt("valorTeclasOperandos",valorTeclasOperandos);
+        valorTeclasOperaciones=prefe.getInt("valorTeclasOperaciones",valorTeclasOperaciones);
+
 
         //recibir los datos de la activity settings
-        valorCheckBoxSumar = true;
+        /*valorCheckBoxSumar = true;
         valorCheckBoxRestar=true;
         valorCheckBoxMultiplicar=true;
         valorCheckBoxDividir=true;
         valorCheckBoxPotencia=true;
-        valorCheckBoxRaizCuadrada=true;
+        valorCheckBoxRaizCuadrada=true;*/
 
          arrayTeclasOperaciones= new Button[]{findViewById(R.id.btnBorrar),
                 findViewById(R.id.btnRaizCuadrada),
@@ -79,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.btn9),
                 findViewById(R.id.btnComa),
         };
-
+        habilitarDesabilitarOperacionesCalculo();
+        cambiarColores();
         //se enlazan los atributos con los del diseño
         texto= (TextView) findViewById(R.id.textView);
         btnBorrar=(Button) findViewById(R.id.btnBorrar);
@@ -478,7 +492,17 @@ public class MainActivity extends AppCompatActivity {
                 habilitarDesabilitarOperacionesCalculo();
                 cambiarColores();
             }
-
+            /*SharedPreferences preferencias=getSharedPreferences("datos", Context.MODE_PRIVATE);
+            SharedPreferences.Editor  editor=preferencias.edit();
+            editor.putBoolean("valorCheckBoxSumar", valorCheckBoxSumar);
+            editor.putBoolean("valorCheckBoxRestar", valorCheckBoxRestar);
+            editor.putBoolean("valorCheckBoxMultiplicar", valorCheckBoxMultiplicar);
+            editor.putBoolean("valorCheckBoxDividir", valorCheckBoxDividir);
+            editor.putBoolean("valorCheckBoxPotencia", valorCheckBoxPotencia);
+            editor.putBoolean("valorCheckBoxRaizCuadrada", valorCheckBoxRaizCuadrada);
+            editor.putInt("valorTeclasOperaciones", valorTeclasOperaciones);
+            editor.putInt("valorTeclasOperandos", valorTeclasOperandos);
+            editor.commit();*/
         }
     }
     public void habilitarDesabilitarOperacionesCalculo(){
