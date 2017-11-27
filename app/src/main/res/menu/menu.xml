@@ -11,6 +11,10 @@
         <!-- En caso de querer mostrar un elemento de la lista desplegable utilizar "always"-->
         <!-- En caso de querer cuadrar el cuadro de opciones "ifRoom"-->
     </item>
+    <item
+        android:id="@+id/acercade"
+        android:title="@string/acercade"
+        app:showAsAction="never"></item>
 
     <!--Para introducir los valores del menu ir declarandolos en esta clase por items -->
     <!--<item

@@ -80,7 +80,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 int indice = arg0.getSelectedItemPosition();
-                Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
                 auxTeclasOperandos=indice;
                 //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
             }
@@ -97,7 +97,7 @@ public class Settings extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 int indice = arg0.getSelectedItemPosition();
                 auxTeclasOperaciones=indice;
-                Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(arg0.getContext(),(String) arg0.getItemAtPosition(indice), Toast.LENGTH_SHORT).show();
 
                 //jugar con el finish() aqui para que cuando seleccione un item cierra la actividad abierta por defecto
                 // con la actividad avierta por defecto me refiero a la primera carga de la actividad MainActivity

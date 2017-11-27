@@ -26,6 +26,8 @@
     <string name="title_activity_settings">Opciones</string>
     <string name="opcionOperaciones">Habilitar/deshabilitar operaciones de cálculo</string>
 
+    <string name="acercade">Acerca de..</string>
+
     <!--colores para las teclas de operandos-->
     <string-array name="color_TeclasOperandos">
         <item name="Defecto">Por defecto</item>
@@ -66,5 +68,7 @@
     <string name="checkBoxPotencia">Potencia</string>
     <string name="checkBoxMultiplicar">Multiplicar</string>
     <string name="checkBoxDividir">Dividir</string>
+    <string name="realizado_por">Realizado por:</string>
+    <string name="ander_gallego_julen_fernandez_xabier_de_felipe">Ander Gallego, Julen Fernandez, Xabier de Felipe</string>
 
 </resources>

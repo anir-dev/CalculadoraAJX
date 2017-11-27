@@ -162,6 +162,9 @@ public class MainActivity extends AppCompatActivity {
                 //this.finish();
                 btnSettingsPulsado();
                 break;
+            case R.id.acercade:
+                Intent i =new Intent(this,AcercaDe.class);
+                startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
@@ -193,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
             id=v.getId();
             operador=(Button) findViewById(id);
             s= (String) operador.getText();
-            Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
             listo=true;
             auxOpe=s;
             agregarCifra(s);
@@ -372,7 +375,7 @@ public class MainActivity extends AppCompatActivity {
         terminado=false;
         int tamaño=texto.getText().length();
         if (tamaño>18){
-            Toast.makeText(this, "No se pueden añadir mas numeros, limite alcanzado", Toast.LENGTH_SHORT).show();
+           Toast.makeText(this, "No se pueden añadir mas numeros, limite alcanzado", Toast.LENGTH_SHORT).show();
         }else{
             String aux;
             aux=(String) texto.getText().toString();
@@ -382,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         texto.setText(texto.getText() + n);
-        Toast.makeText(this, texto.getText(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, texto.getText(), Toast.LENGTH_SHORT).show();
         return "0";
     }
 
